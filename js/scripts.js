@@ -3,23 +3,27 @@ $(document).ready(function() {
     const sideOne = parseInt($("input#firstSide").val());
     const sideTwo = parseInt ($("input#secondSide").val());
     const sideThree = parseInt ($("input#thirdSide").val());
-    const equilateral= "Equilateral";
-    const isoscecles = 'Isosceles';
-    const scalene = "Scalene";
-    const notTriangle = "That doesn't add up to a triangle";
+    let triangle; 
 
     if (sideOne === sideTwo && sideThree){
-      $(".typeOfTriangle").text(equilateral);
+      let triangle = "Equilateral";
+      $(".typeOfTriangle").text(triangle);
     }
-    else if (sideOne === sideTwo && sideOne !== sideThree ||
-      sideOne === sideTwo && sideTwo !== sideThree){
-        $(".typeofTriangle").text(isoscecles);
-      }   
+    else if (sideOne === sideTwo && !== sideThree ){
+        let triangle = "Isosceles"
+        $(".typeofTriangle").text(triangle);
+      } 
+      else if (sideOne === sideThree && !== sideTwo ){
+        let triangle = "Isosceles"
+        $(".typeofTriangle").text(triangle);
+      }
     else if (sideOne !== sideTwo !== sideThree){
-        $(".typeofTriangle").text(scalene);
+        let triangle = "Scalene"
+        $(".typeofTriangle").text(triangle);
       }
     else if(sideOne + sideTwo <= sideThree){
-        $(".typeofTriangle").text(notTriangle);
+        let triangle = "This is not a triangle."
+        $(".typeofTriangle").text(triangle);
       }
       
     event.preventDefault();
